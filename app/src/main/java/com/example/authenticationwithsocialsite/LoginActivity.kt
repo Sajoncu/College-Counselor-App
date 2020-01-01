@@ -53,13 +53,13 @@ class LoginActivity : AppCompatActivity() {
             if (resultCode == Activity.RESULT_OK){
                 val user = FirebaseAuth.getInstance().currentUser
                 val intent = Intent(this,MainActivity::class.java)
-//                val image = user?.photoUrl
-//
-//                intent.putExtra("USERNAME", user?.displayName)
-//                intent.putExtra("USEREMAIL",user?.email)
-//                intent.putExtra("USERPHONE",user?.phoneNumber)
-//                intent.putExtra("USERPROVIDER",user?.providerId)
-//                intent.putExtra("USERIMAGE",user?.photoUrl)
+                val image = user?.photoUrl
+
+                intent.putExtra("USERNAME", user?.displayName)
+                intent.putExtra("USEREMAIL",user?.email)
+                intent.putExtra("USERPHONE",user?.phoneNumber)
+                intent.putExtra("USERPROVIDER",user?.providerId)
+                intent.putExtra("USERIMAGE",user?.photoUrl)
                 startActivity(intent)
 
             }
