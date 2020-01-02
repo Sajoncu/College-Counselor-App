@@ -23,8 +23,8 @@ class GameOverFragment : Fragment() {
         // Inflate the layout for this fragment
         binding = DataBindingUtil.inflate(inflater, R.layout.fragment_game_over, container, false)
         val args = GameOverFragmentArgs.fromBundle(arguments!!)
-        Toast.makeText(context, "NumCorrect: ${args.score}", Toast.LENGTH_LONG).show()
-        binding.scoreShow?.text = "Your Score is "+args.score.toString()+":("
+        //Toast.makeText(context, "NumCorrect: ${args.score}", Toast.LENGTH_LONG).show()
+        binding.scoreShow?.text = "Your Score is "+args.score.toString()+" :("
         return binding.root
         //return inflater.inflate(R.layout.fragment_game_over, container, false)
     }

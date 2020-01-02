@@ -2,6 +2,7 @@ package com.example.authenticationwithsocialsite
 
 import android.content.Intent
 import android.os.Bundle
+import android.preference.PreferenceManager
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
@@ -25,6 +26,7 @@ class ProfileFragment : Fragment() {
         // Inflate the layout for this fragment
         //return inflater.inflate(R.layout.fragment_profile, container, false)
         binding = DataBindingUtil.inflate(inflater, R.layout.fragment_profile, container, false)
+        val sharePreference = PreferenceManager.getDefaultSharedPreferences(activity)
         return binding.root
     }
 
@@ -38,7 +40,6 @@ class ProfileFragment : Fragment() {
     }
 
     fun createUI() {
-
         val list = auth?.providerData
         var providerData: String = ""
         list?.let {
@@ -59,7 +60,9 @@ class ProfileFragment : Fragment() {
                 .placeholder(R.drawable.profilepic)
                 .into(profile_image)
         }
-
+        val sharePreference = PreferenceManager.getDefaultSharedPreferences(activity)
+        val score = sharePreference.getString("SCORE", "")
+        binding.showScore?.text = score.toString()
         btnLogOut.setOnClickListener {
             AuthUI.getInstance().signOut(requireContext())
                 .addOnSuccessListener {

@@ -2,7 +2,9 @@ package com.example.authenticationwithsocialsite
 
 
 import android.content.Context
+import android.content.Context.MODE_PRIVATE
 import android.os.Bundle
+import android.preference.PreferenceManager
 import android.util.Log
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
@@ -60,7 +62,7 @@ class GameFragment : Fragment() {
         // Inflate the layout for this fragment
         val binding = DataBindingUtil.inflate<FragmentGameBinding>(
             inflater, R.layout.fragment_game, container, false)
-
+        val sharePreference = PreferenceManager.getDefaultSharedPreferences(activity)
         // Shuffles the questions and sets the question index to the first question.
         randomizeQuestions()
         //val sp =
@@ -92,6 +94,9 @@ class GameFragment : Fragment() {
                     } else {
                         // We've won!  Navigate to the gameWonFragment.
                         //view.findNavController().navigate(R.id.action_gameFragment_to_gameWonFragment)
+                        var editor = sharePreference?.edit()
+                        editor?.putString("SCORE", score.toString())
+                        editor?.commit()
                         view.findNavController().navigate(GameFragmentDirections.actionGameFragmentToGameWonFragment(score))
                     }
                 } else {

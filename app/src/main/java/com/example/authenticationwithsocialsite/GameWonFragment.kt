@@ -26,8 +26,8 @@ class GameWonFragment : Fragment() {
         val binding = DataBindingUtil.inflate<FragmentGameWonBinding>(inflater, R.layout.fragment_game_won, container, false)
         setHasOptionsMenu(true)
         val args = GameWonFragmentArgs.fromBundle(arguments!!)
-        Toast.makeText(context, "NumCorrect: ${args.score}", Toast.LENGTH_LONG).show()
-        binding.scoreShow?.text = "Your Score is "+args.score.toString()+":)"
+        //Toast.makeText(context, "NumCorrect: ${args.score}", Toast.LENGTH_LONG).show()
+        binding.scoreShow?.text = "Your Score is "+args.score.toString()+" :)"
         return binding.root
     }
 
