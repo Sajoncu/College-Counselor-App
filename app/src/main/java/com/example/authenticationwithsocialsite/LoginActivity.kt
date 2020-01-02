@@ -40,7 +40,7 @@ class LoginActivity : AppCompatActivity() {
                 .setAvailableProviders(providers)
                 .setIsSmartLockEnabled(false)
 //                .setTheme(R.style.LoginUIStyle)
-//                .setLogo(R.drawable.auth_logo)
+                .setLogo(R.drawable.auth_logo)
                 .build(),
             RC_SIGN_IN
         )
