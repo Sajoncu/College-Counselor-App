@@ -63,7 +63,7 @@ class GameFragment : Fragment() {
 
         // Shuffles the questions and sets the question index to the first question.
         randomizeQuestions()
-
+        //val sp =
         // Bind this fragment class to the layout
         binding.game = this
 
@@ -91,13 +91,13 @@ class GameFragment : Fragment() {
                         binding.invalidateAll()
                     } else {
                         // We've won!  Navigate to the gameWonFragment.
-                        view.findNavController().navigate(R.id.action_gameFragment_to_gameWonFragment)
-                        //view.findNavController().navigate(GameFragmentDirections.actionGameFragmentToGameWonFragment(numQuestions, questionIndex))
+                        //view.findNavController().navigate(R.id.action_gameFragment_to_gameWonFragment)
+                        view.findNavController().navigate(GameFragmentDirections.actionGameFragmentToGameWonFragment(score))
                     }
                 } else {
                     // Game over! A wrong answer sends us to the gameOverFragment.
-                    view.findNavController().navigate(R.id.action_gameFragment_to_gameOverFragment)
-                    //view.findNavController().navigate(GameFragmentDirections.actionGameFragmentToGameOverFragment2(numQuestions, questionIndex))
+//                    view.findNavController().navigate(R.id.action_gameFragment_to_gameOverFragment)
+                    view.findNavController().navigate(GameFragmentDirections.actionGameFragmentToGameOverFragment(score))
                 }
             }
         }
